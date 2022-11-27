@@ -41,7 +41,9 @@
                 <form method="get" action="#">
                     <div class="field has-addons">
                         <div class="control">
-                            <input type="text" class="input" placeholder="Search..." name="query">
+                            <label>
+                                <input type="text" class="input" placeholder="Search..." name="query">
+                            </label>
                         </div>
                         <div class="control">
                             <button class="button is-dark is-uppercase">Search</button>
@@ -78,7 +80,7 @@
 <!--FOOTER-->
 <footer class="footer">
     <h3 class="is-size-4 mb-4">My Shop</h3>
-    <a href="#">Become a Vendor</a>
+    <a href="{% url 'vendor:become-vendor' %}">Become a Vendor</a>
 </footer>
 
 
