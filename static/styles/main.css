@@ -1,4 +1,6 @@
-
+/**
+* Navbar
+*/
 .navbar {
     text-transform: uppercase;
 }
@@ -10,7 +12,6 @@
 /**
 * Footer
 */
-
 .footer a {
     margin-bottom: 15px;
     display: inline-block;
@@ -20,7 +21,6 @@
 /**
 * Bulma overrides
 */
-
 .input, .button {
     border-radius: 0;
 }
@@ -28,7 +28,6 @@
 /**
  * Product list item
  */
-
 .product-list-item .box .subtitle {
     margin-bottom: 0;
 }
@@ -40,7 +39,6 @@
 /**
 * Notification toast
 */
-
 @keyframes show-toast {
     0% {
         bottom: -100%;

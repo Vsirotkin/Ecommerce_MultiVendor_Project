@@ -3,40 +3,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static  'img/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
 
+    <!--OWN CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 
+    <!--JS-->
     <script src="{% static 'scripts/main.js' %}"></script>
 
+    <!--TITLE-->
     <title>{% block title %}Online Shop{% endblock title %}</title>
 </head>
 <body>
 
+<!--NAVBAR-->
 <nav class="navbar is-dark">
     <div class="navbar-brand">
         <a href="/" class="navbar-item"><strong>My Shop</strong></a>
         <img src="{% static 'img/logo/victor.png' %}" alt="Logo">
-        <a href="" role="button" class="navbar-brand" aria-expanded="false" data-target="main-navbar">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
     </div>
+
     <div class="navbar-menu" id="main-navbar">
         <div class="navbar-start">
             <div class="navbar-item">
-                <form action="" method="get">
+                <form method="get" action="#">
                     <div class="field has-addons">
                         <div class="control">
-                            <label>
-                                <input type="text" class="input" placeholder="Search..." name="query">
-                            </label>
+                            <input type="text" class="input" placeholder="Search..." name="query">
                         </div>
                         <div class="control">
                             <button class="button is-dark is-uppercase">Search</button>
@@ -45,9 +50,10 @@
                 </form>
             </div>
         </div>
+
         <div class="navbar-end">
             {% for category in menu_categories %}
-                <a href="{% url '#' category.slug %}" class="navbar-item">{{ category.title }}</a>
+                <a href="{% url 'category' category.slug %}" class="navbar-item">{{ category.title }}</a>
             {% endfor %}
 
             <a href="{% url 'core:contact' %}" class="navbar-item">Contact</a>
@@ -59,6 +65,8 @@
     </div>
 </nav>
 
+
+<!--MAIN-->
 <section class="section">
     <div class="container">
         {% block content %}
@@ -66,11 +74,16 @@
     </div>
 </section>
 
+
+<!--FOOTER-->
 <footer class="footer">
     <h3 class="is-size-4 mb-4">My Shop</h3>
     <a href="#">Become a Vendor</a>
-
 </footer>
+
+
+{% block scripts %}
+{% endblock %}
 
 </body>
 </html>
