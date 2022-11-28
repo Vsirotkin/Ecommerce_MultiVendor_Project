@@ -127,3 +127,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication
+LOGIN_URL = 'vendor:login'
+LOGIN_REDIRECT_URL = 'vendor:vendor_admin'
+LOGOUT_REDIRECT_URL = 'core:frontpage'

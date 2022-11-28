@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1 class="title">Become Vendor</h1>
-
+    <!--form to sign up for a vendor-->
     <form action="." method="post">{% csrf_token %}
         <table>
             {{ form.as_table }}
@@ -17,4 +17,10 @@
             </div>
         </div>
     </form>
+
+    <hr>
+    <!--login-->
+    <h2 class="subtitle">Already have an account?</h2>
+    <a href="{% url 'vendor:login' %}" class="button is-success is-uppercase">Login</a>
+    
 {% endblock content %}
