@@ -1,1 +1,1 @@
-# Ecommerce_MultiVendor_Project
+# Online Shop for Vendors and Clients
