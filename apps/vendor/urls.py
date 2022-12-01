@@ -8,6 +8,7 @@ urlpatterns = [
     # app's views
     path('become_vendor/', views.become_vendor, name='become_vendor'),
     path('vendor_admin/', views.vendor_admin, name='vendor_admin'),
+    path('product_add/', views.product_add, name='product_add'),
     # auth views
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='vendor/login.html'), name='login'),

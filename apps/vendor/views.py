@@ -2,7 +2,9 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
+from django.utils.text import slugify
 
+from apps.vendor.forms import ProductForm
 from apps.vendor.models import Vendor
 
 
@@ -36,3 +38,23 @@ def vendor_admin(request):
     }
 
     return render(request, 'vendor/vendor_admin.html', context)
+
+
+@login_required
+def product_add(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.vendor = request.user.vendor
+            product.slug = slugify(product.title)
+            product.save()
+
+            return redirect('vendor:vendor_admin')
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'vendor/product_add.html', context)

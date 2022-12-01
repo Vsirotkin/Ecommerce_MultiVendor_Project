@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add Product
+{% endblock title %}
+
+{% block content %}
+    <h1 class="title">Product Adding...</h1>
+    <!--added enctype to add images-->
+    <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table class="box">
+            {{ form.as_table }}
+        </table>
+        <div class="field">
+            <div class="control">
+                <button class="button is-success is-uppercase">Submit</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock content %}
