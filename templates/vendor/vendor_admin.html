@@ -9,4 +9,29 @@
         <h1 class="title">Vendor Admin - {{ vendor.name }}</h1>
         <a href="{% url 'vendor:logout' %}" class="button is-danger is-uppercase">Log Out</a>
     </div>
+    <div class="box">
+        <h2 class="is-size-3 mb-4">My Products</h2>
+        {% if products %}
+            <table class="table-is-fullwidth">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h2>Все продала. Ушла на базу!</h2>
+
+        {% endif %}
+    </div>
+
 {% endblock content %}
