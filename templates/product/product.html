@@ -14,7 +14,7 @@
 
     <h1 class="title">{{ product.title }} - ${{ product.price }}</h1>
 
-    <p class="mb-6"><span class="tag is-dark">{{ product.vendor.name }}</span></p>
+    <p class="mb-6"><a href="{% url 'vendor:vendor_admin' %}"><span class="tag is-dark">{{ product.vendor.name }}</span></a></p>
     <p>{{ product.description }}</p>
 
     {% if similar_products %}
