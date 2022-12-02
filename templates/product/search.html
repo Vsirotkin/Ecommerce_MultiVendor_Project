@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ category.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="column is-multiline mb-6">
+        <div class="column is-12 has-text-centered my-6">
+            <h2 class="is-size-3">Search...</h2>
+            <h3>Looking for: <strong>{{ query|title }}</strong></h3>
+        </div>
+        {% for product in products %}
+            {% include 'product/parts/list_items.html' %}
+        {% endfor %}
+    </div>
+{% endblock content %}

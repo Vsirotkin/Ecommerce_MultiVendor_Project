@@ -13,7 +13,7 @@
         <h2 class="is-size-3 mb-4">My Products</h2>
         <a href="{% url 'vendor:product_add' %}" class="button is-success is-uppercase mb-6">Add Product</a>
         {% if products %}
-            <table class="table-is-fullwidth">
+            <table class="table is-fullwidth">
                 <thead>
                 <tr>
                     <th>Title</th>
@@ -23,7 +23,7 @@
                 <tbody>
                 {% for product in products %}
                     <tr>
-                        <td>{{ product.title }}</td>
+                        <td><a href="{% url 'product:product' product.category.slug product.slug %}">{{ product.title }}</a></td>
                         <td>${{ product.price }}</td>
                     </tr>
                 {% endfor %}
