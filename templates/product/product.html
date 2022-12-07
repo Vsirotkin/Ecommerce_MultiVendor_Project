@@ -14,8 +14,31 @@
 
     <h1 class="title">{{ product.title }} - ${{ product.price }}</h1>
 
-    <p class="mb-6"><a href="{% url 'vendor:vendor_admin' %}"><span class="tag is-dark">{{ product.vendor.name }}</span></a></p>
+    <p class="mb-6"><a href="{% url 'vendor:vendor_admin' %}"><span class="tag is-dark">{{ product.vendor.name }}</span></a>
+    </p>
     <p>{{ product.description }}</p>
+
+    <hr>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-success is-toast">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" action=".">{% csrf_token %}
+
+        <div class="field has-addons">
+            <div class="control">
+                <label>
+                    <input type="number" name="quantity" value="1" class="input" min="1">
+                </label>
+            </div>
+
+            <div class="control">
+                <button class="button is-dark is-uppercase">Add to cart</button>
+            </div>
+        </div>
+    </form>
 
     {% if similar_products %}
         <hr>
