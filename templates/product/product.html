@@ -21,7 +21,7 @@
     <hr>
     {% if messages %}
         {% for message in messages %}
-            <div class="notification is-success is-toast">{{ message }}</div>
+            <div class="notification is-success is-toast">{{ product.title }} - {{ message }}</div>
         {% endfor %}
     {% endif %}
 

@@ -61,7 +61,8 @@
             <a href="{% url 'core:contact' %}" class="navbar-item">Contact</a>
 
             <div class="navbar-item">
-                <a href="#" class="button is-dark">Cart{% if cart %} ({{ cart|length }}){% endif %}</a>
+                <a href="{% url 'cart:cart_detail' %}" class="button is-dark">Cart{% if cart %} ({{ cart|length }}
+                    ){% endif %}</a>
             </div>
         </div>
     </div>
