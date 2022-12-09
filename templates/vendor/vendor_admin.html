@@ -41,7 +41,7 @@
 
         {% if orders %}
             {% for order in orders %}
-                <div class="{% if order.fully_paid %}has-background-success-light{% else %}has-background-warning-light{% endif %} mb-2 p-4">
+                <div class="{% if order.fully_paid %}has-background-success-light{% else %}has-background-info{% endif %} mb-2 p-4">
                     <div class="columns is-multiline">
                         <div class="column is-6">
                             <h3 class="is-size-4">#{{ order.id }} - {{ order.first_name }} {{ order.last_name }}</h3>
