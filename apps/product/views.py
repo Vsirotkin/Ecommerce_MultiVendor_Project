@@ -2,7 +2,7 @@ import random
 
 from django.contrib import messages
 from django.db.models import Q
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 
 from apps.cart.cart import Cart
 from apps.product.forms import AddToCartForm

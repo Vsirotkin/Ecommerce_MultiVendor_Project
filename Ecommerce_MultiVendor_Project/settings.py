@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.vendor.apps.VendorConfig',
     'apps.product.apps.ProductConfig',
     'apps.cart.apps.CartConfig',
+    'apps.order.apps.OrderConfig',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # own
                 'apps.product.context_processors.menu_categories',
                 'apps.cart.context_processors.cart',
             ],
@@ -140,3 +142,7 @@ SESSION_COOKIE_AGE = 86400
 
 # Cart Session
 CART_SESSION_ID = 'cart'
+
+# Stripe Payment
+STRIPE_PUB_KEY = 'pk_test_51MD2CBCHAGEoR9VCJgBOPXd9VXVIBEAoM3ZMeu4MrdXwjgNgfK0k2Db1NOeTX3zgaAkp4450bt04thgnUuz5Yfpv002GC7maUD'
+STRIPE_SECRET_KEY = 'sk_test_51MD2CBCHAGEoR9VCuwzzcRyOsi6dIdNwoDoyVYkuOOAqZv9IYzuXsICqb9DsXo2LkHxfAEAxbKZjLLapof026Ui700176vOCfM'

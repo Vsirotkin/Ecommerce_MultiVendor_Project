@@ -154,8 +154,9 @@
             <h2 class="subtitle">Payment information</h2>
 
             <div id="card-element">
-                <!-- A Stripe Element will be inserted here -->
+                <!-- To inserted Stripe Element -->
             </div>
+            <!--only for error messages-->
             {% if messages %}
                 {% for message in messages %}
                     <div class="notification is-danger">{{ message }}</div>
@@ -169,22 +170,22 @@
             </div>
         </form>
     {% else %}
-        <p>You don't have any products in your cart!</p>
+        <p>No products in your cart. Let's start shopping!</p>
     {% endif %}
 {% endblock %}
 
 {% block scripts %}
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        var stripe = Stripe('{{ stripe_pub_key }}');
+        var stripe = Stripe('{{ stripe_pub_key }}'); //taken from cart.views in context
         var elements = stripe.elements();
 
         var card = elements.create('card');
 
-        card.mount('#card-element');
+        card.mount('#card-element'); // mount with element, line 156
 
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function (event) {
+        var form = document.getElementById('payment-form'); // look thru the payment-form, line 57
+        form.addEventListener('submit', function (event) { // submit the form
             event.preventDefault();
 
             stripe.createToken(card).then(function (result) {
@@ -192,7 +193,7 @@
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
                 } else {
-                    stripeTokenHandler(result.token);
+                    stripeTokenHandler(result.token); // create a stripe-token based on the cart info
                 }
             });
         });
@@ -201,7 +202,7 @@
             var form = document.getElementById('payment-form');
             var hiddenInput = document.createElement('input');
             hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripe_token');
+            hiddenInput.setAttribute('name', 'stripe_token'); // taken from checkout-form
             hiddenInput.setAttribute('value', token.id);
             form.appendChild(hiddenInput);
 
