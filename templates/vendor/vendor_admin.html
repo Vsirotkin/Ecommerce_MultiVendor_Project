@@ -7,7 +7,23 @@
 {% block content %}
     <div class="box">
         <h1 class="title">Vendor Admin - {{ vendor.name }}</h1>
-        <a href="{% url 'vendor:logout' %}" class="button is-danger is-uppercase">Log Out</a>
+
+        <div class="table-container">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td><strong class="mr-6">My balance: </strong>&#8381;{{ vendor.get_balance }}</td>
+                </tr>
+                <tr>
+                    <td><strong class="mr-3">My paid amount: </strong>&#163;{{ vendor.get_paid_amount }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+        <a href="{% url 'vendor:vendor_edit' %}" class="button is-info is-uppercase is-rounded">Edit</a>
+        <a href="{% url 'vendor:logout' %}" class="button is-danger is-uppercase is-rounded">Log Out</a>
     </div>
     <div class="box">
         <h2 class="is-size-3 mb-4">My Products</h2>
