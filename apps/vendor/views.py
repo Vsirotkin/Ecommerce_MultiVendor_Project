@@ -101,10 +101,18 @@ def vendor_edit(request):
 def vendors(request):
     vendors = Vendor.objects.all()
 
-    return render(request, 'vendor/vendors.html', {'vendors': vendors})
+    context = {
+        'vendors': vendors,
+    }
+
+    return render(request, 'vendor/vendors.html', context)
 
 
 def vendor(request, pk):
     vendor = get_object_or_404(Vendor, pk=pk)
 
-    return render(request, 'vendor/vendor.html', {'vendor': vendor})
+    context = {
+        'vendor': vendor,
+    }
+
+    return render(request, 'vendor/vendor.html', context)
