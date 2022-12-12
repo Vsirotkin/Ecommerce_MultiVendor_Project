@@ -146,3 +146,22 @@ CART_SESSION_ID = 'cart'
 # Stripe Payment
 STRIPE_PUB_KEY = 'pk_test_51MD2CBCHAGEoR9VCJgBOPXd9VXVIBEAoM3ZMeu4MrdXwjgNgfK0k2Db1NOeTX3zgaAkp4450bt04thgnUuz5Yfpv002GC7maUD'
 STRIPE_SECRET_KEY = 'sk_test_51MD2CBCHAGEoR9VCuwzzcRyOsi6dIdNwoDoyVYkuOOAqZv9IYzuXsICqb9DsXo2LkHxfAEAxbKZjLLapof026Ui700176vOCfM'
+
+# EMAIL MAILJET
+EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+EMAIL_HOST = 'in-v3.mailjet.com'
+MAILJET_API_KEY = "0f351d5ddda56ac8549e9083fea04931"
+MAILJET_API_SECRET = "56a79e72169275a4adccb9211573330d"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_TIMEOUT = 30
+DEFAULT_EMAIL_FROM = 'my_shop <admin@e.com>'
+
+
+"""
+import mailjet
+
+mailjet_api = mailjet.Api(api_key='0f351d5ddda56ac8549e9083fea04931', secret_key='56a79e72169275a4adccb9211573330d')
+account_info = mailjet_api.user.infos()
+"""

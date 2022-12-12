@@ -12,7 +12,7 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <td><strong class="mr-6">My balance: </strong>&#8381;{{ vendor.get_balance }}</td>
+                    <td><strong class="mr-6">My balance: </strong>&#163;{{ vendor.get_balance }}</td>
                 </tr>
                 <tr>
                     <td><strong class="mr-3">My paid amount: </strong>&#163;{{ vendor.get_paid_amount }}</td>
@@ -42,13 +42,13 @@
                         <td>
                             <a href="{% url 'product:product' product.category.slug product.slug %}">{{ product.title }}</a>
                         </td>
-                        <td>${{ product.price }}</td>
+                        <td>&#163;{{ product.price }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            <h2>Все продала. Ушла на базу!</h2>
+            <h2>Пиво кончилось. Ушла на базу!</h2>
 
         {% endif %}
     </div>
@@ -86,10 +86,10 @@
                                     {% if item.vendor == request.user.vendor %}
                                         <tr>
                                             <td>{{ item.product.title }}</td>
-                                            <td>${{ item.product.price }}</td>
+                                            <td>&#163;{{ item.product.price }}</td>
                                             <td>{{ item.quantity }}</td>
                                             <td>{{ item.vendor_paid|yesno:"Yes,No" }}</td>
-                                            <td>${{ item.get_total_price }}</td>
+                                            <td>&#163;{{ item.get_total_price }}</td>
                                         </tr>
                                     {% endif %}
                                 {% endfor %}

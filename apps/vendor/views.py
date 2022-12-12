@@ -74,15 +74,16 @@ def product_add(request):
     }
     return render(request, 'vendor/product_add.html', context)
 
+
 @login_required()
 def vendor_edit(request):
     vendor = request.user.vendor
     if request.method == 'POST':
-        name = request.POST.get('name',)
-        email = request.POST.get('email',)
+        name = request.POST.get('name', )
+        email = request.POST.get('email', )
 
         if name:
-            vendor.created_by.email = email
+            vendor.created_by.email = email  # user's field email
             vendor.created_by.save()
 
             vendor.name = name
@@ -95,5 +96,3 @@ def vendor_edit(request):
     }
 
     return render(request, 'vendor/vendor_edit.html', context)
-
-
