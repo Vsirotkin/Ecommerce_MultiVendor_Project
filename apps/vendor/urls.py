@@ -11,7 +11,7 @@ urlpatterns = [
     path('vendor_edit/', views.vendor_edit, name='vendor_edit'),
     path('product_add/', views.product_add, name='product_add'),
     path('', views.vendors, name='vendors'),
-    path('<int:vendor_id>/', views.vendor, name='vendor'),
+    path('vendor/<pk>/', views.vendor, name='vendor'),
 
     # auth views
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
