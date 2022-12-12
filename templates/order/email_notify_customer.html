@@ -53,9 +53,9 @@
                 {% for item in order.items.all %}
                     <tr>
                         <td>{{ item.product.title }}</td>
-                        <td>${{ item.product.price }}</td>
+                        <td>&#163;{{ item.product.price }}</td>
                         <td>{{ item.quantity }}</td>
-                        <td>${{ item.get_total_price }}</td>
+                        <td>&#163;{{ item.get_total_price }}</td>
                     </tr>
                 {% endfor %}
             </table>

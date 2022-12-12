@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'anymail',
+
     # own
     'apps.core.apps.CoreConfig',
     'apps.vendor.apps.VendorConfig',
@@ -148,7 +150,51 @@ STRIPE_PUB_KEY = 'pk_test_51MD2CBCHAGEoR9VCJgBOPXd9VXVIBEAoM3ZMeu4MrdXwjgNgfK0k2
 STRIPE_SECRET_KEY = 'sk_test_51MD2CBCHAGEoR9VCuwzzcRyOsi6dIdNwoDoyVYkuOOAqZv9IYzuXsICqb9DsXo2LkHxfAEAxbKZjLLapof026Ui700176vOCfM'
 
 # EMAIL MAILJET
-EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+# EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+
+
+ANYMAIL = {
+    "MAILGUN_API_KEY": "0f351d5ddda56ac8549e9083fea04931",
+    "MAILGUN_SENDER_DOMAIN": "in-v3.mailjet.com",
+}
+EMAIL_PORT = 587,
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+DEFAULT_FROM_EMAIL = "vsirotkin15@gmail.com"
+
+"""
+
+This call sends a message to the given recipient with vars and custom vars.
+from mailjet_rest import Client
+import os
+api_key = os.environ['MJ_APIKEY_PUBLIC']
+api_secret = os.environ['MJ_APIKEY_PRIVATE']
+mailjet = Client(auth=(api_key, api_secret), version='v3.1')
+data = {
+  'Messages': [
+		{
+			"From": {
+				"Email": "vsirotkin15@gmail.com",
+				"Name": "Vik"
+			},
+			"To": [
+				{
+					"Email": "passenger1@example.com",
+					"Name": "passenger 1"
+				}
+			],
+			"TemplateID": 4424467,
+			"TemplateLanguage": True,
+			"Subject": "test",
+			"Variables": {}
+		}
+	]
+}
+result = mailjet.send.create(data=data)
+print result.status_code
+print result.json()
+
+
+
 EMAIL_HOST = 'in-v3.mailjet.com'
 MAILJET_API_KEY = "0f351d5ddda56ac8549e9083fea04931"
 MAILJET_API_SECRET = "56a79e72169275a4adccb9211573330d"
@@ -158,8 +204,6 @@ EMAIL_USE_SSL = False
 EMAIL_TIMEOUT = 30
 DEFAULT_EMAIL_FROM = 'my_shop <admin@e.com>'
 
-
-"""
 import mailjet
 
 mailjet_api = mailjet.Api(api_key='0f351d5ddda56ac8549e9083fea04931', secret_key='56a79e72169275a4adccb9211573330d')
