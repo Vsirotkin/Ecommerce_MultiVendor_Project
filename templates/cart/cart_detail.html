@@ -34,7 +34,7 @@
                                 <a href="?change_quantity={{ item.id }}&quantity=-1">-</a>
                                 <a href="?change_quantity={{ item.id }}&quantity=1">+</a>
                             </td>
-                            <td>${{ item.total_price }}</td>
+                            <td>&#163;{{ item.total_price }}</td>
                             <td><a href="?remove_from_cart={{ item.id }}" class="delete">Remove</a></td>
                         </tr>
                     {% endfor %}
@@ -45,7 +45,7 @@
                         <td></td>
                         <td><strong>Total cost</strong></td>
                         <td><strong>{{ cart|length }}</strong></td>
-                        <td colspan="2"><strong>${{ cart.get_total_cost }}</strong></td>
+                        <td colspan="2"><strong>&#163;{{ cart.get_total_cost }}</strong></td>
                     </tr>
                     </tfoot>
                 </table>

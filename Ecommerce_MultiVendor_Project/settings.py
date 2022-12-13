@@ -140,7 +140,7 @@ LOGIN_REDIRECT_URL = 'vendor:vendor_admin'
 LOGOUT_REDIRECT_URL = 'core:frontpage'
 
 # Cookie
-SESSION_COOKIE_AGE = 86400
+SESSION_COOKIE_AGE = 86400  # 24 hours
 
 # Cart Session
 CART_SESSION_ID = 'cart'
