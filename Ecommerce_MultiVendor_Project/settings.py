@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'anymail',
 
     # own
     'apps.core.apps.CoreConfig',
@@ -149,19 +148,20 @@ CART_SESSION_ID = 'cart'
 STRIPE_PUB_KEY = 'pk_test_51MD2CBCHAGEoR9VCJgBOPXd9VXVIBEAoM3ZMeu4MrdXwjgNgfK0k2Db1NOeTX3zgaAkp4450bt04thgnUuz5Yfpv002GC7maUD'
 STRIPE_SECRET_KEY = 'sk_test_51MD2CBCHAGEoR9VCuwzzcRyOsi6dIdNwoDoyVYkuOOAqZv9IYzuXsICqb9DsXo2LkHxfAEAxbKZjLLapof026Ui700176vOCfM'
 
+"""
 # EMAIL MAILJET
 # EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
 
 
-ANYMAIL = {
-    "MAILGUN_API_KEY": "0f351d5ddda56ac8549e9083fea04931",
-    "MAILGUN_SENDER_DOMAIN": "in-v3.mailjet.com",
-}
-EMAIL_PORT = 587,
-EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
-DEFAULT_FROM_EMAIL = "vsirotkin15@gmail.com"
+# ANYMAIL = {
+#     "MAILGUN_API_KEY": "0f351d5ddda56ac8549e9083fea04931",
+#     "MAILGUN_SENDER_DOMAIN": "in-v3.mailjet.com",
+# }
+# EMAIL_PORT = 587,
+# EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+# DEFAULT_FROM_EMAIL = "vsirotkin15@gmail.com"
 
-"""
+
 
 This call sends a message to the given recipient with vars and custom vars.
 from mailjet_rest import Client
